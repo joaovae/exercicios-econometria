@@ -1,0 +1,29 @@
+---
+title: "exercicio1"
+author: "João Victor Araujo Evangelista"
+date: "25/04/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Questão 2
+```{r message=FALSE, warning=FALSE}
+library("tidyverse")
+library("xtable")
+```
+Questão 3
+```{r}
+bikes <- read.csv("bikes.csv")
+view(bikes)
+```
+Nessa base de dados constam 9 variáveis (11 colunas, porém Date e Day estão iguais e X é apenas um index) e 210 observações (linhas).
+
+Questão 4
+```{r}
+summary(bikes)
+```
+i) A maior temperatura máxima observada foi 81.00 e a menor temperatura mínima foi 26.10. 
+ii) A ponte que teve em média o maior número de bicicletas atravessando é a Williamsburg Brdige com 4862.
+
