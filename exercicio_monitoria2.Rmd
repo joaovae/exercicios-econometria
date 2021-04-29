@@ -1,0 +1,14 @@
+---
+title: "Exercício de monitoria"
+author: "João Victor Araujo Evangelista"
+date: "29/04/2021"
+output: html_document
+---
+
+
+```{r}
+2 + 2
+3 * 2
+1 / 5
+```
+
