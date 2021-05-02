@@ -1,0 +1,100 @@
+---
+title: "Lista 2"
+author: "João Victor Araujo Evangelista"
+date: "02/05/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Exercício 1:
+Com funções
+```{r}
+  x <- 2
+  b <- 3
+  d <- 4
+  y <- 10
+  z <- 2
+  abs(x)
+  sqrt(x)
+  exp(x)
+  log(x)
+  log(x, b)
+  round(x, d)
+  factorial(x)
+  seq(x, y, z)
+```
+Com operadores
+```{r}
+  2 + 2 == 4
+  3 < 3 + 1
+  5 > 2 * 3
+  5 >=  2.5 + 2.5
+  3 <= 1.5 + 3.5
+  3 != 1.5 + 1.5
+  TRUE | FALSE
+  TRUE & FALSE
+```
+
+Exercício 2:
+```{r}
+  x <- 2
+  b <- 3
+  d <- 4
+  y <- 10
+  z <- 2
+
+  curve(abs(x),from = 0, to = 10 )
+  curve(sqrt(x),from = 0, to = 10 )
+  curve(exp(x),from = 0, to = 10 )
+  curve(log(x),from = 0, to = 10 )
+  curve(log(x, b),from = 0, to = 10 )
+  curve(round(x, d),from = 0, to = 10 )
+  curve(factorial(x),from = 0, to = 10 )
+```
+
+Exercício 3:
+```{r}
+  vector_numerical <- c(1, 2, 3)
+  print(vector_numerical)
+  class(vector_numerical)
+  
+  vector_character <- c("a", "b", "c")
+  print(vector_character)
+  class(vector_character)
+  
+  vector_logical <- c(TRUE, FALSE, TRUE)
+  print(vector_logical)
+  class(vector_logical) 
+  
+  vector_complex <- c(1 + 2i, 2i, 3i)
+  print(vector_complex)
+  class(vector_complex) 
+  
+  vector_factor <- as.factor(c(1, 1, 2, 3))
+  print(vector_factor)
+  class(vector_factor) 
+```
+Exercício 4 (veremos o head):
+
+```{r}
+  library(readxl)
+  populacao_estimada <- read_excel("População estimada dos municípios.xlsx")
+  head(populacao_estimada)
+```
+Exercício 5:
+
+```{r}
+  class(populacao_estimada)
+  dim(populacao_estimada)
+  nrow(populacao_estimada)
+  ncol(populacao_estimada)
+  names(populacao_estimada)
+  head(populacao_estimada)
+  str(populacao_estimada)
+  colMeans(populacao_estimada[c(4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)])
+  summary(populacao_estimada)
+```
+
