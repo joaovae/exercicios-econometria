@@ -1,0 +1,144 @@
+---
+title: "Lista 3"
+author: "João Victor Araujo Evangelista"
+date: "12/05/2021"
+output: html_document
+---
+
+```{r message = FALSE, warning = FALSE}
+library("statsr")
+library("dplyr")
+library("infer")
+load(url('http://s3.amazonaws.com/assets.datacamp.com/course/dasi/ames.RData'))
+```
+Questão 1:
+```{r}
+a = qnorm(0.18, mean = 73, sd = 8)
+a
+b = pnorm(70, mean = 75, sd = 5)
+b
+c = 1 - pnorm(85, mean = 75, sd = 5)
+c
+d = 1 - pnorm(1, mean = 0, sd = 1)
+d
+e = pt(2.3, df = 5)
+e
+f = qt(0.25, df = 25)
+f
+```
+Questão 2
+```{r}
+#A
+area_media = mean(ames$Gr.Liv.Area)
+area_sd = sd(ames$Gr.Liv.Area)
+x <- dnorm(ames$Gr.Liv.Area, mean = area_media, sd = area_sd)
+plot(ames$Gr.Liv.Area, x)
+#B
+menores <- sum(ames$Gr.Liv.Area < 1499.69, na.rm = TRUE)/nrow(ames)
+menores*100
+#C
+summary(ames$Gr.Liv.Area)
+#D
+min(ames$Gr.Liv.Area)
+max(ames$Gr.Liv.Area)
+```
+
+Portanto:
+a) FALSA
+b) FALSA
+c) VERDADEIRA
+d) VERDADEIRA
+
+Questão 3:
+```{r}
+set.seed(12)
+amostra50 <- sample(ames$Gr.Liv.Area, 50)
+amostra100 <- sample(ames$Gr.Liv.Area, 100)
+amostra1000 <- sample(ames$Gr.Liv.Area, 1000)
+
+hist(amostra50, breaks = 50)
+hist(amostra100, breaks = 50)
+hist(amostra1000, breaks = 50)
+```
+
+A amostra que ofecerá a estimativa mais acurada é a com 1000.
+
+Questão 4
+```{r warning = FALSE, message = FALSE, echo = FALSE}
+amostras <- rep_sample_n(tbl = ames, size = 50, reps = 15000)
+
+mean_amostras = aggregate(amostras$SalePrice, list(amostras$replicate), mean)
+
+
+hist(mean_amostras$x)
+```
+
+Se aproximou de uma normal
+
+Questão 5:
+```{r}
+media_precos = mean(amostras$SalePrice)
+media_precos
+sd_precos = sd(amostras$SalePrice)
+sd_precos
+p_maior = pnorm(185000, mean = media_precos, sd = sd_precos)
+p_maior
+p_menor = pnorm(165000, mean = media_precos, sd = sd_precos)
+p_menor
+p = p_maior - p_menor
+p*100
+```
+9.9%
+
+Questão 6
+```{r}
+#a
+curve(dnorm(x, mean = 90, sd=100),
+      col = "blue",
+      xlim = c(-400,400),
+      ylim = c(0,0.004))
+
+#b
+curve(dnorm(x, mean = 90, sd=100),
+      col = "blue",
+      xlim = c(-400,400),
+      ylim = c(0,0.005))
+curve(dnorm(x, mean = 90, sd=80),
+      col = "red",
+      xlim = c(-400,400),
+      ylim = c(0,0.005),
+      add = TRUE)
+curve(dnorm(x, mean = 75, sd=100),
+      col = "green",
+      xlim = c(-400,400),
+      ylim = c(0,0.005),
+      add = TRUE)
+
+#C
+curve(dchisq(x, df=1),
+      col = "blue",
+      xlim = c(0,10),
+      ylim = c(0,1))
+
+curve(dchisq(x, df=2),
+      col = "red",
+      xlim = c(0,10),
+      ylim = c(0,1),
+      add = TRUE)
+
+curve(dchisq(x, df=5),
+      col = "green",
+      xlim = c(0,10),
+      ylim = c(0,1),
+      add = TRUE)
+#D
+rf = rf(100000, df1 = 10, df2 = 20)
+
+x = rf
+
+hist(rf, breaks = 100)
+
+curve(df(x, df1 = 10, df2 = 20),
+      col = "blue")
+```
+
