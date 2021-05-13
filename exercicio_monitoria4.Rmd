@@ -1,0 +1,53 @@
+---
+title: "exercicio1_monitoria4"
+author: "João Victor Araujo Evangelista"
+date: "13/05/2021"
+output: html_document
+---
+
+```{r}
+vetor1 <- c(1, 2, 3, 4)
+vetor2 <- c(4, 2, 5, 1)
+vetor3 <- c(1, 2, 3, 4)
+vetor4 <- c(1, 2, 3, 4)
+
+v <- c(1, 2, 3, 4)
+
+
+matriz1 <- cbind(vetor1, vetor2, vetor3, vetor4)
+matriz2 <- cbind(vetor4, vetor2, vetor3, vetor1)
+matriz3 <- diag(x = c(1, 2, 3, 4))
+
+vetor1
+vetor2
+
+
+vetor1 + vetor2
+vetor1 - vetor2
+
+t(vetor1) %% vetor1
+vetor1 %% t(vetor1)
+
+length(vetor1)	
+max(vetor1)	
+min(vetor1)
+sum(vetor1)	
+prod(vetor1)	
+numeric(4)
+rep(1, 4)	
+sqrt(vetor1)
+
+matriz1
+matriz2
+matriz3
+
+
+matriz1 %*% matriz2
+
+solve(matriz3)
+det(matriz1)
+eigen(matriz1)
+
+
+```
+
